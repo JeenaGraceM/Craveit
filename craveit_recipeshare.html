@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Recipe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        textarea {
+            height: 150px;
+        }
+
+        .ingredient-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .ingredient-group input {
+            width: 200px;
+        }
+
+        .ingredient-group select {
+            width: 120px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .add-ingredient-btn {
+            background-color: #f1c40f;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .add-ingredient-btn:hover {
+            background-color: #f39c12;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Submit Your Recipe</h1>
+        <form action="/submit-recipe" method="POST">
+            <!-- Recipe Title -->
+            <label for="recipe-title">Recipe Title:</label>
+            <input type="text" id="recipe-title" name="recipe-title" required>
+
+            <!-- Ingredients List -->
+            <label for="ingredients">Ingredients:</label>
+            <div id="ingredients">
+                <div class="ingredient-group">
+                    <input type="text" name="ingredient-name[]" placeholder="Ingredient Name" required>
+                    <input type="number" name="ingredient-quantity[]" placeholder="Quantity" required>
+                    <select name="ingredient-unit[]">
+                        <option value="grams">grams</option>
+                        <option value="cups">cups</option>
+                        <option value="tbsp">tablespoons</option>
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="add-ingredient-btn" onclick="addIngredient()">Add Ingredient</button>
+
+            <!-- Preparation Steps -->
+            <label for="preparation-steps">Preparation Steps:</label>
+            <textarea id="preparation-steps" name="preparation-steps" required></textarea>
+
+            <!-- Cooking Time -->
+            <label for="cooking-time">Cooking Time:</label>
+            <input type="time" id="cooking-time" name="cooking-time">
+
+            <!-- Calories per Serving -->
+            <label for="calories">Calories per Serving:</label>
+            <input type="number" id="calories" name="calories" required>
+
+            <!-- Number of Servings -->
+            <label for="servings">Number of Servings:</label>
+            <input type="number" id="servings" name="servings" required>
+
+            <!-- Dietary Preferences -->
+            <label for="dietary-preferences">Dietary Preferences:</label>
+            <input type="checkbox" name="dietary-preferences" value="Vegan"> Vegan
+            <input type="checkbox" name="dietary-preferences" value="Gluten-Free"> Gluten-Free
+            <input type="checkbox" name="dietary-preferences" value="Dairy-Free"> Dairy-Free
+            <input type="checkbox" name="dietary-preferences" value="Nut-Free"> Nut-Free
+            <input type="checkbox" name="dietary-preferences" value="Keto"> Keto
+
+            <!-- Health Considerations -->
+            <label for="health-considerations">Health Considerations:</label>
+            <input type="checkbox" name="health-considerations" value="Low Sodium"> Low Sodium
+            <input type="checkbox" name="health-considerations" value="High Protein"> High Protein
+            <input type="checkbox" name="health-considerations" value="Heart Healthy"> Heart Healthy
+
+            <!-- Cuisine -->
+            <label for="cuisine">Cuisine:</label>
+            <select name="cuisine" id="cuisine">
+                <option value="italian">Italian</option>
+                <option value="indian">Indian</option>
+                <option value="chinese">Chinese</option>
+                <option value="mexican">Mexican</option>
+                <option value="japanese">Japanese</option>
+            </select>
+
+            <!-- Image Upload -->
+            <label for="image">Dish Image:</label>
+            <input type="file" id="image" name="image" accept="image/*">
+
+            <!-- Tags -->
+            <label for="tags">Tags (comma separated):</label>
+            <input type="text" id="tags" name="tags">
+
+            <!-- Difficulty Level -->
+            <label for="difficulty">Difficulty Level:</label>
+            <select name="difficulty" id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+
+            <!-- Notes -->
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes"></textarea>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Recipe</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to add more ingredients dynamically
+        function addIngredient() {
+            const ingredientsDiv = document.getElementById('ingredients');
+            const newIngredientGroup = document.createElement('div');
+            newIngredientGroup.classList.add('ingredient-group');
+            newIngredientGroup.innerHTML = `
+                <input type="text" name="ingredient-name[]" placeholder="Ingredient Name" required>
+                <input type="number" name="ingredient-quantity[]" placeholder="Quantity" required>
+                <select name="ingredient-unit[]">
+                    <option value="grams">grams</option>
+                    <option value="cups">cups</option>
+                    <option value="tbsp">tablespoons</option>
+                </select>
+            `;
+            ingredientsDiv.appendChild(newIngredientGroup);
+        }
+    </script>
+</body>
+
+</html>

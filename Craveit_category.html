@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Recipe Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            display: flex;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-family: 'Dancing Script', cursive;
+            color: #7d423c;
+            width: 100%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: #542b26;
+            color: white;
+            padding-top: 20px;
+            padding-left: 15px;
+            position: fixed;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+        }
+
+        .sidebar a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px 20px;
+            display: block;
+            transition: background-color 0.3s;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .sidebar a:hover {
+            background-color: #916560;
+        }
+
+        /* Subcategory Boxes */
+        .subcategories {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .box {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 5px 10px;
+            text-align: center;
+            background-color: white;
+            cursor: pointer;
+            transition: 0.3s;
+            gap: 5px;
+            font-size: 14px;
+            width: 120px;
+            margin: 5px 0;
+            color:black;
+        }
+
+        .box:hover {
+            border-color: #856562;
+            background-color: #ffe5de;
+            transform: scale(1.05);
+        }
+
+        .box.selected {
+            border-color: #d29691;
+            background-color: #ffd3c9;
+        }
+
+        /* Main Content */
+        .category-content {
+            margin-left: 250px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .max-selection-warning {
+            text-align: center;
+            color: rgb(255, 255, 255);
+            font-size: 14px;
+            margin: 10px 0;
+            display: none;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: white;
+            color: rgb(0, 0, 0);
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: rgb(174, 163, 163);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Calories Category -->
+        <a href="#" onclick="showSubcategory('calories')">Calories</a>
+        <div class="subcategories" id="calories" style="display: none;">
+            <div class="box">Low-Calorie</div>
+            <div class="box">Moderate-Calorie</div>
+            <div class="box">High-Calorie</div>
+            <div class="box">Calorie-Specific Plans</div>
+        </div>
+        <p class="max-selection-warning" id="max-warning-calories">You can only select up to 3 items in the Calories category!</p>
+
+        <!-- Health Issues Category -->
+        <a href="#" onclick="showSubcategory('health-issues')">Health Issues</a>
+        <div class="subcategories" id="health-issues" style="display: none;">
+            <div class="box">Diabetes-Friendly</div>
+            <div class="box">Heart-Healthy</div>
+            <div class="box">Weight Management</div>
+            <div class="box">Kidney-Friendly</div>
+            <div class="box">Immunity Boosting</div>
+            <div class="box">Pregnancy-Safe</div>
+        </div>
+        <p class="max-selection-warning" id="max-warning-health-issues">You can only select up to 3 items in the Health Issues category!</p>
+
+        <!-- Regional Preferences Category -->
+        <a href="#" onclick="showSubcategory('regional-preferences')">Regional Preferences</a>
+        <div class="subcategories" id="regional-preferences" style="display: none;">
+            <div class="box">Indian</div>
+            <div class="box">Italian</div>
+            <div class="box">Chinese</div>
+            <div class="box">Middle Eastern</div>
+            <div class="box">Mexican</div>
+            <div class="box">Japanese</div>
+        </div>
+        <p class="max-selection-warning" id="max-warning-regional-preferences">You can only select up to 3 items in the Regional Preferences category!</p>
+
+        <!-- Dietary Preferences Category -->
+        <a href="#" onclick="showSubcategory('dietary-preferences')">Dietary Preferences</a>
+        <div class="subcategories" id="dietary-preferences" style="display: none;">
+            <div class="box">Vegan</div>
+            <div class="box">Vegetarian</div>
+            <div class="box">Pescatarian</div>
+            <div class="box">Keto</div>
+            <div class="box">Paleo</div>
+            <div class="box">Gluten-Free</div>
+        </div>
+        <p class="max-selection-warning" id="max-warning-dietary-preferences">You can only select up to 3 items in the Dietary Preferences category!</p>
+
+        <!-- Lifestyle Preferences Category -->
+        <a href="#" onclick="showSubcategory('lifestyle-preferences')">Lifestyle Preferences</a>
+        <div class="subcategories" id="lifestyle-preferences" style="display: none;">
+            <div class="box">Quick Meals</div>
+            <div class="box">Meal Prep</div>
+            <div class="box">Budget-Friendly</div>
+            <div class="box">Kid-Friendly</div>
+            <div class="box">Party Food</div>
+            <div class="box">Festive Recipes</div>
+        </div>
+        <p class="max-selection-warning" id="max-warning-lifestyle-preferences">You can only select up to 3 items in the Lifestyle Preferences category!</p>
+
+        <br>
+        <button type="submit" class="btn">FILTER</button>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="category-content" id="category-content">
+        <p class="max-selection-warning" id="max-warning">You can only select up to 3 items in each category!</p>
+    </div>
+
+    <!-- Place JavaScript at the end of the body -->
+    <script>
+        // JavaScript code here (same as previously provided)
+        let selectedCount = {
+            calories: 0,
+            'health-issues': 0,
+            'regional-preferences': 0,
+            'dietary-preferences': 0,
+            'lifestyle-preferences': 0
+        };
+
+        function showSubcategory(category) {
+            const allSubcategories = document.querySelectorAll('.subcategories');
+            allSubcategories.forEach(subcategory => subcategory.style.display = 'none');
+
+            const subcategory = document.getElementById(category);
+            subcategory.style.display = 'block';
+        }
+
+        document.querySelectorAll('.box').forEach(box => {
+            box.addEventListener('click', () => {
+                const subcategory = box.parentElement;
+                const category = subcategory.id;
+                const maxSelectionWarning = document.getElementById('max-warning-' + category);
+
+                if (box.classList.contains('selected')) {
+                    box.classList.remove('selected');
+                    selectedCount[category]--;
+                } else {
+                    if (selectedCount[category] < 3) {
+                        box.classList.add('selected');
+                        selectedCount[category]++;
+                    } else {
+                        maxSelectionWarning.style.display = 'block';
+                        setTimeout(() => {
+                            maxSelectionWarning.style.display = 'none';
+                        }, 2000);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

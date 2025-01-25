@@ -83,6 +83,15 @@
 </head>
 
 <body>
+    <div id="header"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
+    
     <div class="login-container">
         <h1>Crave It</h1>
         <h2>Login</h2>
