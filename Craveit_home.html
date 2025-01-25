@@ -1,9 +1,199 @@
+<!DOCTYPE html>
 <html>
+
 <head>
-    <title>Craveit</title>
-    <link rel="stylesheet" type="text/css" href="Craveit_home.css">
+    <title>CraveIt - Turn Ingredients into Culinary Magic</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #7d423c;
+            color: white;
+            padding: 10px 20px; /* Increased padding for better spacing */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        header .nav {
+            display: flex;
+            gap: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ffe5de;
+        }
+        .logo img {
+            width: 100%; 
+            height: auto; 
+            display: block; 
+        }
+        .logo-container {
+            text-align: center;
+            margin-top: 2px; /* Adds space above logo */
+        }
+
+        .logo-container h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 50px;
+            font-weight: bold;
+            color: black;
+            font-style: italic;
+        }
+
+        .tagline {
+            font-family: 'Great Vibes', cursive;
+            font-size: 25px;
+            color: brown;
+            font-weight: normal;
+            margin-top: 2px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background-image: url('https://pin.it/Zuyt73voO');
+            background-size: cover;
+            background-position: center;
+            color: black;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero .search-bar {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .hero input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .hero button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            font-size: 16px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: #e65a50;
+        }
+
+
+        .popular-categories .categories {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .popular-categories .category {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 200px;
+        }
+
+        .popular-categories .category:hover {
+            background-color: #ffefeb;
+        }
+    </style>
 </head>
+
 <body>
-    welcome to craveit
+    <!-- Header Section -->
+    <header>
+        <div class="nav">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="Creveit_about.html">About</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Settings</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Logo Section -->
+    <div class="logo-container">
+        <h1>CraveIt</h1>
+        <marquee>
+        <h2 class="tagline">Turn Ingredients into Culinary Magic</h2></marquee >
+    </div>
+    <div class="logo">
+        <img src="https://i.pinimg.com/736x/71/4d/1f/714d1fa3799ce6ccb89df8477c9aec93.jpg" alt="CraveIt Logo"> <!-- Replace with your image path -->
+    </div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome!!</h1>
+        <div class="search-bar">
+            <input type="text" placeholder="What ingredients do you have? Type here...">
+            <button>Find Recipes</button>
+        </div>
+    </div>
+
+  
+
+    <!-- Popular Categories Section -->
+    <section class="popular-categories">
+        <h2>Popular Categories</h2>
+        <div class="categories">
+            <div class="category">
+                <h3>Low-Calorie Recipes</h3>
+                <p>Discover delicious low-calorie meals!</p>
+            </div>
+            <div class="category">
+                <h3>Quick Meals</h3>
+                <p>Fast and flavorful recipes for busy days.</p>
+            </div>
+            <div class="category">
+                <h3>Vegan Delights</h3>
+                <p>Plant-based recipes that amaze!</p>
+            </div>
+        </div>
+    </section>
 </body>
-</html> 
+
+</html>
