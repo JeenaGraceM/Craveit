@@ -95,3 +95,31 @@ Query OK, 0 rows affected (0.05 sec)
 | issue_id | int  | NO   | MUL | NULL    |       |
 +----------+------+------+-----+---------+-------+
 2 rows in set (0.00 sec)
+
+ create table recipe_search_history(id int primary key, user_id int not null, search_term varchar(255));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc recipe_search_history;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| id          | int          | NO   | PRI | NULL    |       |
+| user_id     | int          | NO   |     | NULL    |       |
+| search_term | varchar(255) | YES  |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+create table alternative_ingredients(id int primary key, recipe_id int not null, missing_ingredient varchar(100) not null, suggested_ingredient varchar(100) not null, foreign key(recipe_id) references recipes(recipe_id));
+
+Query OK, 0 rows affected (0.05 sec)
+
+ desc alternative_ingredients;
++----------------------+--------------+------+-----+---------+-------+
+| Field                | Type         | Null | Key | Default | Extra |
++----------------------+--------------+------+-----+---------+-------+
+| id                   | int          | NO   | PRI | NULL    |       |
+| recipe_id            | int          | NO   | MUL | NULL    |       |
+| missing_ingredient   | varchar(100) | NO   |     | NULL    |       |
+| suggested_ingredient | varchar(100) | NO   |     | NULL    |       |
++----------------------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
