@@ -58,3 +58,40 @@ desc recipe_ingredients;
 | quantity  | varchar(50) | NO   |     | NULL    |       |
 +-----------+-------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
+
+create table dietary_category(diet_id int auto_increment primary key, diet_name varchar(100) not null);
+Query OK, 0 rows affected (0.02 sec)
+
+desc dietary_category;
++-----------+--------------+------+-----+---------+----------------+
+| Field     | Type         | Null | Key | Default | Extra          |
++-----------+--------------+------+-----+---------+----------------+
+| diet_id   | int          | NO   | PRI | NULL    | auto_increment |
+| diet_name | varchar(100) | NO   |     | NULL    |                |
++-----------+--------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+ create table health_issues(issue_id int auto_increment primary key, issue varchar(100) not null);
+Query OK, 0 rows affected (0.02 sec)
+
+desc health_issues;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| issue_id | int          | NO   | PRI | NULL    | auto_increment |
+| issue    | varchar(100) | NO   |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+2 rows in set (0.00 sec)
+
+create table user_issue(user_id int not null, issue_id int not null, foreign key (user_id) references Users(user_id), foreign key (issue_id) refe
+rences health_issues(issue_id));
+Query OK, 0 rows affected (0.05 sec)
+
+ desc user_issue;
++----------+------+------+-----+---------+-------+
+| Field    | Type | Null | Key | Default | Extra |
++----------+------+------+-----+---------+-------+
+| user_id  | int  | NO   | MUL | NULL    |       |
+| issue_id | int  | NO   | MUL | NULL    |       |
++----------+------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
