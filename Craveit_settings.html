@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+    .settings-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background: #e8cbc3;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #542b26;
+      font-family: 'Dancing Script', cursive;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      background-color: #ffffff;
+    }
+    .section h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #5c4327;
+    }
+    .section p {
+      font-size: 14px;
+      color: #5c4327;
+      margin-bottom: 10px;
+    }
+    .info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .info-content {
+      color: #5c4327;
+    }
+    .info-content label {
+      font-weight: bold;
+    }
+    .info-content div {
+      margin: 5px 0;
+    }
+    .edit-btn {
+      background-color: #6b3f3f;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .edit-btn:hover {
+      background-color: #b08181;
+    }
+    .save-btn {
+      background-color: #4caf50;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    .save-btn:hover {
+      background-color: #3e8e41;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      display: none;
+    }
+    .delete-btn {
+      background-color: #dc3545;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .delete-btn:hover {
+      background-color: #b02a37;
+    }
+    a {
+      color: #b37c53;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script>
+    function toggleEdit(section) {
+      const info = document.querySelector(`#${section} .info-content`);
+      const inputs = document.querySelectorAll(`#${section} input, #${section} textarea`);
+      const editBtn = document.querySelector(`#${section} .edit-btn`);
+      const saveBtn = document.querySelector(`#${section} .save-btn`);
+
+      if (editBtn.textContent === "Edit") {
+        info.style.display = "none";
+        inputs.forEach(input => (input.style.display = "block"));
+        saveBtn.style.display = "block";
+        editBtn.textContent = "Cancel";
+      } else {
+        info.style.display = "block";
+        inputs.forEach(input => (input.style.display = "none"));
+        saveBtn.style.display = "none";
+        editBtn.textContent = "Edit";
+      }
+    }
+
+    function saveChanges(section) {
+      const inputs = document.querySelectorAll(`#${section} input, #${section} textarea`);
+      const info = document.querySelector(`#${section} .info-content`);
+      const editBtn = document.querySelector(`#${section} .edit-btn`);
+      const saveBtn = document.querySelector(`#${section} .save-btn`);
+
+      inputs.forEach(input => {
+        const field = input.getAttribute("data-field");
+        document.querySelector(`#${section} .${field}`).textContent = input.value;
+      });
+
+      info.style.display = "block";
+      inputs.forEach(input => (input.style.display = "none"));
+      saveBtn.style.display = "none";
+      editBtn.textContent = "Edit";
+    }
+  </script>
+</head>
+<body>
+  <div class="settings-container">
+    <h1>Settings</h1>
+
+    <!-- Profile Information Section -->
+    <div id="profile" class="section">
+      <div class="info">
+        <div class="info-content">
+          <div><label>Username:</label> <span class="username">Jesmi Jayan</span></div>
+          <div><label>Bio:</label> <span class="bio">heyyyy..</span></div>
+        </div>
+        <button class="edit-btn" onclick="toggleEdit('profile')">Edit</button>
+      </div>
+      <input type="text" data-field="username" placeholder="Enter your username" value="Jesmi Jayan">
+      <textarea data-field="bio" rows="3" placeholder="Write something about yourself">heyyyy.</textarea>
+      <button class="save-btn" onclick="saveChanges('profile')" style="display: none;">Save</button>
+    </div>
+
+    <!-- Email and Phone Number Section -->
+    <div id="contact" class="section">
+      <div class="info">
+        <div class="info-content">
+          <div><label>Email:</label> <span class="email">jesmijayan@gmail.com</span></div>
+          <div><label>Phone:</label> <span class="phone">9634567890</span></div>
+        </div>
+        <button class="edit-btn" onclick="toggleEdit('contact')">Edit</button>
+      </div>
+      <input type="email" data-field="email" placeholder="Enter your email" value="jesmijayan@gmail.com">
+      <input type="tel" data-field="phone" placeholder="Enter your phone number" value="96345678900">
+      <button class="save-btn" onclick="saveChanges('contact')" style="display: none;">Save</button>
+    </div>
+
+    <!-- Delete Account Section -->
+    <div class="section">
+      <h2>Delete Account</h2>
+      <p><strong>Warning:</strong> Deleting your account is permanent and cannot be undone.</p>
+      <button class="delete-btn">Delete Account</button>
+    </div>
+
+    <!-- Help Center Section -->
+    <div class="section">
+      <h2>Help Center</h2>
+      <p>If you need assistance, please visit our <a href="#">Help Center</a>.</p>
+    </div>
+  </div>
+</body>
+</html>

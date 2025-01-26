@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>CraveIt - Turn Ingredients into Culinary Magic</title>
@@ -24,10 +24,29 @@
 
         header .nav {
             display: flex;
-            gap: 2px;
+            margin: 0.2rem 5rem;
+            justify-content: flex-end;
+
         }
 
-        
+        header .nav ul {
+            display: flex; /* Make the list items appear in a row */
+            gap: 20px; /* Add spacing between the links */
+            list-style: none; /* Remove bullet points */
+            margin: 0;
+            padding: 0;
+        }
+
+        header .nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        header .nav ul li a:hover {
+            text-decoration: underline;
+        }
 
         .hero {
             position: relative;
@@ -61,7 +80,6 @@
             font-weight: bold;
             margin: 0;
         }
-        
 
         .hero .tagline {
             font-family: 'Great Vibes', cursive;
@@ -101,23 +119,21 @@
 
         .recipe-bar {
             display: flex;
-            justify-content: center; /* This will center the button horizontally */
-            align-items: center; /* This will center the button vertically, if needed */
-            flex-direction: column; /* Optional: ensures the content is stacked vertically if you have other elements inside .recipe-bar */
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
         }
 
-.recipe-bar button {
-    padding: 10px 20px;
-    margin: 10px;
-    font-size: 18px;
-    background-color: #76534f;
-    color: rgb(240, 238, 238);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block; /* Ensures the button is displayed as a block element */
-    margin-top: 20px; /* Optional: you can adjust this to give more spacing above the button */
-}
+        .recipe-bar button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 18px;
+            background-color: #76534f;
+            color: rgb(240, 238, 238);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
         .recipe-bar button:hover {
             background-color: #b18f8c;
@@ -156,8 +172,8 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="Craveit_login.html">Login</a></li>
                     <li><a href="Creveit_about.html">About</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Settings</a></li>
+                    <li><a href="Craveit_contact_us.html">Contact Us</a></li>
+                    <li><a href="Craveit_settings.html">Settings</a></li>
                 </ul>
             </nav>
         </div>
@@ -170,15 +186,14 @@
             <p class="tagline">Turn Ingredients into Culinary Magic</p>
             <div class="search-bar">
                 <input type="text" placeholder="What ingredients do you have? Type here...">
-                <button><a href="Craveit_category.html">Find Recipes</button></a>
+                <button><a href="Craveit_category.html">Find Recipes</a></button>
             </div>
         </div>
     </div>
 
-    <div  class="recipe-bar">
-        <button><a href="Craveit_recipeshare.html">Share your recipe</button></a>
+    <div class="recipe-bar">
+        <button><a href="Craveit_recipeshare.html">Share your recipe</a></button>
     </div>
-    
 
     <!-- Popular Categories Section -->
     <section class="popular-categories">
