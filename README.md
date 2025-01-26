@@ -28,6 +28,11 @@ Welcome to CraveIt—the recipe platform that’s got your back in the kitchen (
 
 #### Technologies/Components Used
 
+For software:
+  - Languages used: HTML, CSS, Javascript, Python
+  - Libraries used: FastAPI, FastAPI Security, Pydantic, Typing, Passlib, Jose, Datetime, SQLAlchemy, SQLAlchemy ORM, Databases, Secrets, MySQL Connector
+  - Tools used: Git (version control), GitHub (repository hosting), MySQL (database)
+
 
 #### Implementation
 
@@ -38,8 +43,6 @@ Welcome to CraveIt—the recipe platform that’s got your back in the kitchen (
 #### Project Documentation
 
 ### Screenshots 
-
-### Diagrams
 
 ### Build Photos
 
