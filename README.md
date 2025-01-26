@@ -36,21 +36,20 @@ For software:
 
 #### Implementation
 
-### Installation
-
-### Run
+The Recipe Finder website integrates MySQL, Python FastAPI, and HTML/CSS to provide a user-friendly platform for managing and discovering recipes. MySQL serves as the database, storing user details and recipe information in structured tables, including a users table for registration data and a recipes table for recipe submissions linked to users. The backend, developed using Python FastAPI, acts as the connection layer, providing endpoints for user registration, login, recipe addition, and search functionalities. FastAPI ensures secure operations through JWT authentication and simplifies database interactions using SQLAlchemy for ORM. The frontend, designed with HTML and CSS, offers an intuitive interface where users can register, log in, submit recipes, and search for them based on ingredients. JavaScript handles dynamic features like form submission and fetch requests to backend APIs, ensuring smooth communication between the frontend and backend.
 
 #### Project Documentation
 
+
+
 ### Screenshots 
+![alt text](image.png)
 
 ### Build Photos
 
 #### Project Demo
 
 ### Video
-
-### Additional Demos
 
 #### Team Contributions
 
