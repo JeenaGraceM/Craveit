@@ -71,7 +71,7 @@
             font-size: 14px;
             width: 120px;
             margin: 5px 0;
-            color:black;
+            color: black;
         }
 
         .box:hover {
@@ -90,14 +90,9 @@
             margin-left: 250px;
             padding: 20px;
             width: 100%;
-        }
-
-        .max-selection-warning {
-            text-align: center;
-            color: rgb(255, 255, 255);
-            font-size: 14px;
-            margin: 10px 0;
-            display: none;
+            background-color: #f4f4f9;
+            height: 100vh;
+            overflow-y: auto;
         }
 
         .btn {
@@ -114,6 +109,27 @@
         .btn:hover {
             background-color: rgb(174, 163, 163);
         }
+
+        /* Filtered Products */
+        .filtered-products {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .filtered-products h2 {
+            color: #7d423c;
+        }
+
+        .product {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
     </style>
 </head>
 
@@ -123,80 +139,113 @@
         <!-- Calories Category -->
         <a href="#" onclick="showSubcategory('calories')">Calories</a>
         <div class="subcategories" id="calories" style="display: none;">
-            <div class="box">Low-Calorie</div>
-            <div class="box">Moderate-Calorie</div>
-            <div class="box">High-Calorie</div>
-            <div class="box">Calorie-Specific Plans</div>
+            <div class="box" data-category="calories">Low-Calorie</div>
+            <div class="box" data-category="calories">Moderate-Calorie</div>
+            <div class="box" data-category="calories">High-Calorie</div>
+            <div class="box" data-category="calories">Calorie-Specific Plans</div>
+            
         </div>
-        <p class="max-selection-warning" id="max-warning-calories">You can only select up to 3 items in the Calories category!</p>
 
         <!-- Health Issues Category -->
         <a href="#" onclick="showSubcategory('health-issues')">Health Issues</a>
         <div class="subcategories" id="health-issues" style="display: none;">
-            <div class="box">Diabetes-Friendly</div>
-            <div class="box">Heart-Healthy</div>
-            <div class="box">Weight Management</div>
-            <div class="box">Kidney-Friendly</div>
-            <div class="box">Immunity Boosting</div>
-            <div class="box">Pregnancy-Safe</div>
+            <div class="box" data-category="health-issues">Diabetes-Friendly</div>
+            <div class="box" data-category="health-issues">Heart-Healthy</div>
+            <div class="box" data-category="health-issues">Weight Management</div>
+            <div class="box" data-category="health-issues">Kidney-Friendly</div>
+            <div class="box" data-category="health-issues">Immunity Boosting</div>
+            <div class="box" data-category="health-issues">Pregnancy-Safe</div>
         </div>
-        <p class="max-selection-warning" id="max-warning-health-issues">You can only select up to 3 items in the Health Issues category!</p>
 
         <!-- Regional Preferences Category -->
         <a href="#" onclick="showSubcategory('regional-preferences')">Regional Preferences</a>
         <div class="subcategories" id="regional-preferences" style="display: none;">
-            <div class="box">Indian</div>
-            <div class="box">Italian</div>
-            <div class="box">Chinese</div>
-            <div class="box">Middle Eastern</div>
-            <div class="box">Mexican</div>
-            <div class="box">Japanese</div>
+            <div class="box" data-category="regional-preferences">Indian</div>
+            <div class="box" data-category="regional-preferences">Italian</div>
+            <div class="box" data-category="regional-preferences">Chinese</div>
+            <div class="box" data-category="regional-preferences">Middle Eastern</div>
+            <div class="box" data-category="regional-preferences">Mexican</div>
+            <div class="box" data-category="regional-preferences">Japanese</div>
         </div>
-        <p class="max-selection-warning" id="max-warning-regional-preferences">You can only select up to 3 items in the Regional Preferences category!</p>
 
-        <!-- Dietary Preferences Category -->
         <a href="#" onclick="showSubcategory('dietary-preferences')">Dietary Preferences</a>
         <div class="subcategories" id="dietary-preferences" style="display: none;">
-            <div class="box">Vegan</div>
-            <div class="box">Vegetarian</div>
-            <div class="box">Pescatarian</div>
-            <div class="box">Keto</div>
-            <div class="box">Paleo</div>
-            <div class="box">Gluten-Free</div>
+            <div class="box" data-category="dietary-preferences">Vegan</div>
+            <div class="box" data-category="dietary-preferences">Vegetarian</div>
+            <div class="box" data-category="dietary-preferences">Pescatarian</div>
+            <div class="box" data-category="dietary-preferences">Keto</div>
+            <div class="box" data-category="dietary-preferences">Paleo</div>
+            <div class="box" data-category="dietary-preferences">Gluten-Free</div>
         </div>
-        <p class="max-selection-warning" id="max-warning-dietary-preferences">You can only select up to 3 items in the Dietary Preferences category!</p>
 
-        <!-- Lifestyle Preferences Category -->
         <a href="#" onclick="showSubcategory('lifestyle-preferences')">Lifestyle Preferences</a>
         <div class="subcategories" id="lifestyle-preferences" style="display: none;">
-            <div class="box">Quick Meals</div>
-            <div class="box">Meal Prep</div>
-            <div class="box">Budget-Friendly</div>
-            <div class="box">Kid-Friendly</div>
-            <div class="box">Party Food</div>
-            <div class="box">Festive Recipes</div>
+            <div class="box" data-category="lifestyle-preferences">Quick Meals</div>
+            <div class="box" data-category="lifestyle-preferences">Meal Prep</div>
+            <div class="box" data-category="lifestyle-preferences">Budget-Friendly</div>
+            <div class="box" data-category="lifestyle-preferences">Kid-Friendly</div>
+            <div class="box" data-category="lifestyle-preferences">Party Food</div>
+            <div class="box" data-category="lifestyle-preferences">Festive Recipes</div>
         </div>
-        <p class="max-selection-warning" id="max-warning-lifestyle-preferences">You can only select up to 3 items in the Lifestyle Preferences category!</p>
-
         <br>
-        <button type="submit" class="btn">FILTER</button>
+        <button type="button" class="btn" onclick="filterProducts()">FILTER</button>
     </div>
 
     <!-- Main Content Area -->
-    <div class="category-content" id="category-content">
-        <p class="max-selection-warning" id="max-warning">You can only select up to 3 items in each category!</p>
+    <div class="category-content">
+        <div class="filtered-products" id="filtered-products">
+            <h2>Filtered Products</h2>
+            <div id="product-list">
+                <!-- Filtered products will appear here -->
+            </div>
+        </div>
     </div>
 
-    <!-- Place JavaScript at the end of the body -->
+    <!-- JavaScript -->
     <script>
-        // JavaScript code here (same as previously provided)
-        let selectedCount = {
-            calories: 0,
-            'health-issues': 0,
-            'regional-preferences': 0,
-            'dietary-preferences': 0,
-            'lifestyle-preferences': 0
-        };
+        const products = [
+            { name: "Low-Calorie Salad", category: "calories", subcategory: "Low-Calorie" },
+            { name: "Diabetes-Friendly Smoothie", category: "health-issues", subcategory: "Diabetes-Friendly" },
+            { name: "Heart-Healthy Soup", category: "health-issues", subcategory: "Heart-Healthy" },
+            { name: "Indian Curry", category: "regional-preferences", subcategory: "Indian" },
+            { name: "Italian Pasta", category: "regional-preferences", subcategory: "Italian" },
+            { name: "Chinese Stir Fry", category: "regional-preferences", subcategory: "Chinese" }
+        ];
+
+        let selectedFilters = [];
+
+        document.querySelectorAll('.box').forEach(box => {
+            box.addEventListener('click', () => {
+                const subcategory = box.textContent;
+                if (box.classList.contains('selected')) {
+                    box.classList.remove('selected');
+                    selectedFilters = selectedFilters.filter(filter => filter !== subcategory);
+                } else {
+                    box.classList.add('selected');
+                    selectedFilters.push(subcategory);
+                }
+            });
+        });
+
+        function filterProducts() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = ""; // Clear previous results
+
+            const filteredProducts = products.filter(product =>
+                selectedFilters.includes(product.subcategory)
+            );
+
+            if (filteredProducts.length === 0) {
+                productList.innerHTML = "<p>No products match the selected filters.</p>";
+            } else {
+                filteredProducts.forEach(product => {
+                    const productElement = document.createElement('div');
+                    productElement.className = "product";
+                    productElement.textContent = product.name;
+                    productList.appendChild(productElement);
+                });
+            }
+        }
 
         function showSubcategory(category) {
             const allSubcategories = document.querySelectorAll('.subcategories');
@@ -205,29 +254,6 @@
             const subcategory = document.getElementById(category);
             subcategory.style.display = 'block';
         }
-
-        document.querySelectorAll('.box').forEach(box => {
-            box.addEventListener('click', () => {
-                const subcategory = box.parentElement;
-                const category = subcategory.id;
-                const maxSelectionWarning = document.getElementById('max-warning-' + category);
-
-                if (box.classList.contains('selected')) {
-                    box.classList.remove('selected');
-                    selectedCount[category]--;
-                } else {
-                    if (selectedCount[category] < 3) {
-                        box.classList.add('selected');
-                        selectedCount[category]++;
-                    } else {
-                        maxSelectionWarning.style.display = 'block';
-                        setTimeout(() => {
-                            maxSelectionWarning.style.display = 'none';
-                        }, 2000);
-                    }
-                }
-            });
-        });
     </script>
 </body>
 

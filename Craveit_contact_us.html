@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.google.com/imgres?q=cute%20cooking%20aesthetic%20login&imgurl=https%3A%2F%2Fwww.shutterstock.com%2Fimage-photo%2Fwoman-chefs-hands-cooking-vegetables-600nw-2503660419.jpg&imgrefurl=https%3A%2F%2Fwww.shutterstock.com%2Fsearch%2Faesthetic-cooking&docid=7e2QUVC4QDdsMM&tbnid=Ohg1R9ev0_cKBM&vet=12ahUKEwi1xoyR4JGLAxWIyjgGHTWTF_8QM3oECGMQAA..i&w=600&h=600&hcb=2&ved=2ahUKEwi1xoyR4JGLAxWIyjgGHTWTF_8QM3oECGMQAA'
+            background-size: cover;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+            color: #fff;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-form {
+            width: 35%;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 120px;
+        }
+
+        .form-group button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-group button:hover {
+            background-color: #555;
+        }
+
+        .contact-info {
+            width: 60%;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-info h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .contact-info p {
+            margin: 8px 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .contact-info a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .map {
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Contact Us</h1>
+        <div class="contact-wrapper">
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2>Contact Information</h2>
+                <p><strong>Address:</strong> Chottanikkara, Ernakulam, Kerala, India</p>
+                <p><strong>Email:</strong> <a href="mailto:info@kerala.com">info@kerala.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+914845678901">+91 484 567 8901</a></p>
+                <p><strong>Business Hours:</strong><br>Monday - Saturday: 9 AM - 6 PM</p>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write your message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Map -->
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.8467682476446!2d76.39543031479124!3d9.93751319289869!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d4ebef1d573%3A0x7b3f3f3e3dfdcdc3!2sChottanikkara%20Temple!5e0!3m2!1sen!2sin!4v1691207605159!5m2!1sen!2sin"
+                allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</body>
+
+</html>
