@@ -96,7 +96,7 @@
 <body>
     <div class="container">
         <h1>Submit Your Recipe</h1>
-        <form action="/submit-recipe" method="POST">
+        <form id="recipe-form">
             <!-- Recipe Title -->
             <label for="recipe-title">Recipe Title:</label>
             <input type="text" id="recipe-title" name="recipe-title" required>
@@ -198,6 +198,22 @@
             `;
             ingredientsDiv.appendChild(newIngredientGroup);
         }
+
+        // Form submission using fetch to backend
+        document.getElementById('recipe-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+
+            fetch('/submit-recipe', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+              .then(data => {
+                  alert('Recipe submitted successfully!');
+              }).catch(error => {
+                  alert('Error submitting recipe.');
+              });
+        });
     </script>
 </body>
 
