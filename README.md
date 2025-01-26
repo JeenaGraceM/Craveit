@@ -43,7 +43,8 @@ The Recipe Finder website integrates MySQL, Python FastAPI, and HTML/CSS to prov
 
 
 ### Screenshots 
-![alt text](image.png)
+![alt text](image.png)![alt text](about-1.png)![alt text](about-2.png) ![alt text](contact-1.png) ![alt text](contact2-1.png) ![alt text](findrecipes-1.png) ![alt text](homepg-1.png) ![alt text](homepg2-1.png) ![alt text](login-1.png) ![alt text](settings-1.png) ![alt text](signup-1.png) ![alt text](submit_recipe-1.png) ![alt text](submit_recipe2-1.png) ![alt text](submit_recipe3-1.png)
+
 
 ### Build Photos
 
@@ -52,6 +53,9 @@ The Recipe Finder website integrates MySQL, Python FastAPI, and HTML/CSS to prov
 ### Video
 
 #### Team Contributions
+        Anna Angela Jacob : Backend code
+        Jesmi Jayan : Frontend Development
+        Jeena Grace Mathew : Database Development
 
 
 
